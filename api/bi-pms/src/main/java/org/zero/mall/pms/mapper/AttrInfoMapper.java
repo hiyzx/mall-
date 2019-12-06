@@ -1,6 +1,6 @@
 package org.zero.mall.pms.mapper;
 
-import org.zero.mall.pms.entity.BaseAttrInfo;
+import org.zero.mall.pms.entity.AttrInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author hiyzx
- * @since 2019-12-04
+ * @since 2019-12-05
  */
-public interface BaseAttrInfoMapper extends BaseMapper<BaseAttrInfo> {
+public interface AttrInfoMapper extends BaseMapper<AttrInfo> {
 
 }

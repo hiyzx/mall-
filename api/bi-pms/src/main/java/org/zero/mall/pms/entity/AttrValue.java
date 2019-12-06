@@ -17,14 +17,14 @@ import java.io.Serializable;
  * </p>
  *
  * @author hiyzx
- * @since 2019-12-04
+ * @since 2019-12-05
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("pms_base_attr_value")
-@ApiModel(value="BaseAttrValue对象", description="属性值表")
-public class BaseAttrValue implements Serializable {
+@TableName("pms_attr_value")
+@ApiModel(value="AttrValue对象", description="属性值表")
+public class AttrValue implements Serializable {
 
     private static final long serialVersionUID=1L;
 

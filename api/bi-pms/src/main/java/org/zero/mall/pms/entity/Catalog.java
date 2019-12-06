@@ -13,32 +13,32 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 属性表
+ * 一级分类表
  * </p>
  *
  * @author hiyzx
- * @since 2019-12-04
+ * @since 2019-12-05
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("pms_base_attr_info")
-@ApiModel(value="BaseAttrInfo对象", description="属性表")
-public class BaseAttrInfo implements Serializable {
+@TableName("pms_catalog")
+@ApiModel(value="Catalog对象", description="分类表")
+public class Catalog implements Serializable {
 
     private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "编号")
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    private Integer id;
 
-    @ApiModelProperty(value = "属性名称")
-    private String attrName;
+    @ApiModelProperty(value = "分类名称")
+    private String name;
 
-    private Long catalog3Id;
+    @ApiModelProperty(value = "分类级别1,2,3")
+    private Integer type;
 
-    @ApiModelProperty(value = "启用：1 停用：0")
-    private String isEnabled;
+    private Integer parentId;
 
 
 }
