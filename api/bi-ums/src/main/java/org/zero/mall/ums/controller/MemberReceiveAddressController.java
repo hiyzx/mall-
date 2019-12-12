@@ -2,10 +2,8 @@ package org.zero.mall.ums.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.zero.mall.ums.model.dto.MemberReceiveAddressDto;
 import org.zero.mall.ums.model.vo.MemberReceiveAddressVo;
 import org.zero.mall.ums.service.IMemberReceiveAddressService;
 
@@ -29,6 +27,11 @@ public class MemberReceiveAddressController {
     @GetMapping("/list")
     public List<MemberReceiveAddressVo> list(@RequestParam Long memberId) {
         return memberReceiveAddressService.listByMemberId(memberId);
+    }
+
+    @PostMapping("/add")
+    public void add(@RequestBody MemberReceiveAddressDto memberReceiveAddressDto) {
+        memberReceiveAddressService.add(memberReceiveAddressDto);
     }
 }
 

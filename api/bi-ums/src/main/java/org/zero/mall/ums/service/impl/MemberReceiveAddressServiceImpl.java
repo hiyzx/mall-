@@ -2,9 +2,11 @@ package org.zero.mall.ums.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.zero.mall.ums.entity.MemberReceiveAddress;
 import org.zero.mall.ums.mapper.MemberReceiveAddressMapper;
+import org.zero.mall.ums.model.dto.MemberReceiveAddressDto;
 import org.zero.mall.ums.model.vo.MemberReceiveAddressVo;
 import org.zero.mall.ums.service.IMemberReceiveAddressService;
 import org.zero.mall.ums.util.BeanHelper;
@@ -28,5 +30,12 @@ public class MemberReceiveAddressServiceImpl extends ServiceImpl<MemberReceiveAd
         queryWrapper.eq(MemberReceiveAddress::getMemberId, memberId);
         List<MemberReceiveAddress> memberReceiveAddresses = baseMapper.selectList(queryWrapper);
         return BeanHelper.copyList(memberReceiveAddresses, MemberReceiveAddressVo.class);
+    }
+
+    @Override
+    public void add(MemberReceiveAddressDto memberReceiveAddressDto) {
+        MemberReceiveAddress memberReceiveAddress = new MemberReceiveAddress();
+        BeanUtils.copyProperties(memberReceiveAddressDto, memberReceiveAddress);
+        this.save(memberReceiveAddress);
     }
 }

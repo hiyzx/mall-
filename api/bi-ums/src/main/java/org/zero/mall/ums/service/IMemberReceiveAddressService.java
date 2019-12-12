@@ -2,6 +2,7 @@ package org.zero.mall.ums.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.zero.mall.ums.entity.MemberReceiveAddress;
+import org.zero.mall.ums.model.dto.MemberReceiveAddressDto;
 import org.zero.mall.ums.model.vo.MemberReceiveAddressVo;
 
 import java.util.List;
@@ -17,4 +18,6 @@ import java.util.List;
 public interface IMemberReceiveAddressService extends IService<MemberReceiveAddress> {
 
     List<MemberReceiveAddressVo> listByMemberId(Long memberId);
+
+    void add(MemberReceiveAddressDto memberReceiveAddressDto);
 }

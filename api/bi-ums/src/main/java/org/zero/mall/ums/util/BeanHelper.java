@@ -1,7 +1,7 @@
 package org.zero.mall.ums.util;
 
-import cn.hutool.core.collection.CollectionUtil;
 import org.springframework.beans.BeanUtils;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class BeanHelper {
      */
     public static <T> List<T> copyList(List<?> sourceList, Class<T> clazz) {
         List<T> targetList = new ArrayList<>();
-        if (CollectionUtil.isNotEmpty(sourceList)) {
+        if (!CollectionUtils.isEmpty(sourceList)) {
             for (Object o : sourceList) {
                 T target = BeanUtils.instantiateClass(clazz);
                 BeanUtils.copyProperties(o, target);
