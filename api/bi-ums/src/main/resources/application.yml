@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 5000
 spring:
   #数据库连接
   datasource:
@@ -15,6 +15,20 @@ spring:
       max-lifetime: 1800000
       maximum-pool-size: 20
       minimum-idle: 20
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery: # 服务发现配置
+        enabled: true
+        register: true
+        deregister: true
+        prefer-ip-address: true
+        health-check-interval: 10s
+        health-check-critical-timeout: 30s
+        health-check-path: /health
+        instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port} # 应用名称+服务器IP+端口
+
 
 #mybatis plus
 mybatis-plus:
@@ -39,3 +53,10 @@ mybatis-plus:
 jasypt:
   encryptor:
     password: G0CvDz7oJn6
+management:
+  endpoints:
+    web:
+      base-path: /
+  endpoint:
+    health:
+      show-details: always
